@@ -17,6 +17,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 /**
  * @author Hugo Victor
@@ -34,7 +35,7 @@ public class InBoundOrderRequestDTO {
         private LocalDate orderDate = LocalDate.now();
         @NotNull(message = "Campo sellerId é obrigatorio")
         @JsonProperty(value =  "seller_id")
-        private Long sellerId;
+        public Long sellerId;
         @JsonProperty(value = "section")
         private SectionForInboundDTO sectionForInboundDTO;
         @JsonProperty(value= "batchStockList")
@@ -45,11 +46,10 @@ public class InBoundOrderRequestDTO {
         private Long representanteId;
 
 
-
-
-        public InBoundOrder convertedto(RepresentanteServices representanteServices, SectionServices sectionServices,
-                                        ProductService productService, SellerService sellerService){
+    public InBoundOrder convertedto(RepresentanteServices representanteServices, SectionServices sectionServices,
+                                    ProductService productService, SellerService sellerService){
             Section section = sectionServices.obterSectionByCode(sectionForInboundDTO.getCode());
+            batchStockDTOList.forEach(batchStockDTOList->batchStockDTOList.setSellerId(getSellerId()));
             try{
                 InBoundOrder inboundOrder = null;
                 inboundOrder = InBoundOrder.builder()
@@ -57,7 +57,7 @@ public class InBoundOrderRequestDTO {
                         .representante(representanteServices.obter(this.representanteId))
                         .orderNumber(this.orderNumber)
                         .section(section)
-                        .batchStock(converte(batchStockDTOList, productService, sellerService)).build();
+                        .batchStock(converte(batchStockDTOList ,productService, sellerService)).build();
 
                 return inboundOrder;
             }catch(Exception e){

@@ -1,6 +1,7 @@
 package com.meli.projetointegradorgroup1.controller;
 
 
+import com.meli.projetointegradorgroup1.dto.request.BatchStockRequestDTO;
 import com.meli.projetointegradorgroup1.dto.request.InBoundOrderRequestDTO;
 import com.meli.projetointegradorgroup1.dto.response.InboundOrderDtoJustBatchStocks;
 import com.meli.projetointegradorgroup1.entity.InBoundOrder;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Hugo Victor

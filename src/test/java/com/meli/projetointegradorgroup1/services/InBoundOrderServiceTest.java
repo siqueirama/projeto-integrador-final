@@ -34,7 +34,7 @@ public class InBoundOrderServiceTest {
     Representante representante = new Representante(1l, "Joao", "98765432178");
     Warehouse warehouse = new Warehouse(1l, 44l,"Miguel", "Rua: Hum", "3",representante);
     Section section = new Section(1l, 2l, StockType.FRESH,"30", 8l, warehouse);
-    BatchStock batchStock = new BatchStock(1l, 2l,2.0,3.0,4.0,"5","6", LocalDateTime.now(), LocalDate.now(). plusDays(10), 7, 8.0, batchStockItem,seller);
+    BatchStock batchStock = new BatchStock(1l,2l,2.0,3.0,4.0,"5","6", LocalDateTime.now(), LocalDate.now(). plusDays(10), 7, 8.0, batchStockItem,seller);
 
     SectionServices sectionServices = Mockito.mock(SectionServices.class);
     List<BatchStock> batchStockList = new ArrayList();

@@ -18,8 +18,8 @@ import java.util.List;
  */
 
 public class BatchStockControllerTest {
-    BatchStock batchStock = new BatchStock(1l, 2l,2.0,3.0,4.0,"5","6", LocalDateTime.now(),LocalDate.now(), 7, 8.0, null,null);
-    BatchStock batchStockUpdate = new BatchStock(2l, 1l,2.0,3.0,4.0,"5","6", LocalDateTime.now(),LocalDate.now(), 7, 8.0,null,null);
+    BatchStock batchStock = new BatchStock(1l,2l,2.0,3.0,4.0,"5","6", LocalDateTime.now(),LocalDate.now(), 7, 8.0, null,null);
+    BatchStock batchStockUpdate = new BatchStock(2l,1l,2.0,3.0,4.0,"5","6", LocalDateTime.now(),LocalDate.now(), 7, 8.0,null,null);
     BatchStockRequestDTO batchStockRequestDTO = new BatchStockRequestDTO(1l,2l,1l,2.0,3.0,4.0,"5","6", "0000-00-00 00:00:00",LocalDate.now(), 7, 8.0);
     BatchStockResponseDTO batchStockResponseDTO = new BatchStockResponseDTO(1l,1l,2.0,3.0,4.0,"5","6", "0000-00-00 00:00:00",LocalDate.now(), 7, 8.0);
 
